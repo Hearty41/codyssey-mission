@@ -30,7 +30,7 @@ Server:
   Paused: 0
   Stopped: 2
  Images: 4
-
+```
 codyssey-mission/
 ├── Dockerfile              # Nginx 기반 커스텀 웹서버 빌드 정의 파일
 ├── README.md               # 최종 기술 문서 (본 파일)

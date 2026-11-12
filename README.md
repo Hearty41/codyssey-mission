@@ -156,6 +156,7 @@ e43341d49c71   ubuntu              "bash"                   2 hours ago     Exit
 
 ### 4.3 Custom Dockerfile 빌드 및 서비스 접속 검증
 * **Dockerfile 빌드 로그**:
+  * 기본 Nginx 화면 대신 만든 index.html이 바로 뜨게 하려고 dockerfile 작성하여 my-custom-web:1.0 이라는 이미지 빌드
 ```bash
 sudo docker build -t my-custom-web:1.0 .
 ```

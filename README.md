@@ -102,6 +102,9 @@ codyssey-mission/
 
 ### 4.1 CLI 기초 및 파일 권한 실습
   * 마우스 없이 터미널에서 명령어만으로 내 위치 확인과 파일을 만들어서 권한을 바꿀 수 있는지 테스트.
+  * pwd로 현재 폴더 위치 확인
+  * touch로 sample.txt 파일을 만들고
+  * chmod 755로 권한이 제대로 바뀌었는지 ls -l로 확인
 ```bash
 pwd
 touch sample.txt

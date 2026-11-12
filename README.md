@@ -255,7 +255,10 @@ sudo docker logs my_custom_app
 ```text
 2026/11/10 16:40:12 [error] 7#7: *1 directory index of "/usr/share/nginx/html/" is forbidden
 ```
-*
+* 웹 접속 시 403/404 Forbidden 오류가 났을 때
+* docker logs로 컨테이너 내부 에러 로그를 먼저 확인해서 파일 접근 권한 문제인 거 찾아냄
+* index.html에 읽기 권한(644)을 부여해서 정상 접속되게 복구
+
 * **결과**: `html/index.html` 파일 존재 확인 및 권한 `644` 변경 후 정적 파일 전달상태 복구 완료.
 
 ---
@@ -265,3 +268,6 @@ sudo docker logs my_custom_app
 1. **민감 정보 하드코딩 금지**: 소스코드, Dockerfile, 로그 파일 내에 GitHub Personal Access Token(PAT), 이메일 비밀번호 등 개인 인증 정보를 절대 명시하지 않음.
 2. **토큰 유출 시 조치**: 토큰 노출 의심 시 GitHub `Settings > Developer Settings > Personal Access Tokens`에서 즉시 해당 토큰을 Revoke(삭제)하고 재발급 진행.
 3. **제출용 문서 마스킹**: 기술 문서나 제출용 스크린샷 내 개인 이메일, IP 주소, 인증 토큰 등 민감 정보가 포함된 경우 모자이크/마스킹 처리 준수.
+  * 깃허브에 개인 액세스 토큰(PAT)이나 비밀번호가 코드에 섞여올라가면 계정이 해킹될 수 있어 하드코딩 금지
+  * 만약 유출이 의심되면 즉시 깃허브 설정에서 토큰을 삭제및 재발급
+  * 캡처 화면의 개인정보는 가리는 보안 지침을 준수함

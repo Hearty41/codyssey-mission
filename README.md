@@ -13,6 +13,8 @@
 | **Container Engine** | Docker Desktop (WSL Integration enabled) |
 | **VCS / Repository** | Git / GitHub (`Hearty41/codyssey-mission`) |
 | **Web Server** | Nginx (Custom Image: `my-custom-web:1.0`) |
+  * 미션 시작 전 윈도우에서 리눅스(WSL2)랑 도커가 정상적으로 연결되어 있는지 먼저 확인
+  * docker --version, docker info를 입력하여 도커 엔진이 백그라운드에서 잘 돌아가고 있는지 확인하고 시작
 
 ### 🔍 Docker 데몬 및 버전 검증
 ```bash

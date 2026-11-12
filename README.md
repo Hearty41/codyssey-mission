@@ -101,6 +101,7 @@ codyssey-mission/
 ## 🎯 4. 미션 요구사항별 수행 내역 & 실행 증거 (Execution Logs)
 
 ### 4.1 CLI 기초 및 파일 권한 실습
+  * 마우스 없이 터미널에서 명령어만으로 내 위치 확인과 파일을 만들어서 권한을 바꿀 수 있는지 테스트.
 ```bash
 pwd
 touch sample.txt

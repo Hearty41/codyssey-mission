@@ -120,8 +120,9 @@ ls -l sample.txt
 
 ### 4.2 Docker 기본 작동 및 모니터링
 * **hello-world 컨테이너 실행 로그**:
-  * 도커가 인터넷에서 이미지를 받아와 실행하는 기본 기능이 잘 되는지 확인하고
-  * 내 컴퓨터에서 어떤 이미지와 컨테이너가 있는 목록을 보고 확인  
+  * hello-world를 실행, 도커 설치랑 작동이 정상인지 확인
+  * docker images로 다운받은 이미지 목록을 보고
+  * docker ps -a로 이미 실행이 끝난 컨테이너 기록까지 관리할 수 있게 조회
 ```bash
 sudo docker run hello-world
 ```

@@ -194,6 +194,9 @@ Connection: keep-alive
 ```
 
 ### 4.4 Docker Volume 영구 보존 입증
+  * 컨테이너는 일회용이라 삭제하면 안의 데이터 같이 사라진다
+  * 도커가 별도로 관리하는 my-vol 이라는 볼륨(안전 창고)을 만들어
+  * 컨테이너가 삭제된 뒤에도, 새로 띄운 컨테이너에 똑같은 볼륨을 연결하면 그대로 살아있는 거 확인
 ```bash
 # 1. 볼륨 생성 및 데이터 작성
 sudo docker volume create my-vol

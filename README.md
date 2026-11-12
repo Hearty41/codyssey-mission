@@ -51,9 +51,10 @@ codyssey-mission/
 ├── bind_test.txt           # Bind Mount 실시간 양방향 연동 검증 파일
 ├── container_access.log    # Nginx 컨테이너 내부 접근 로그 추출 파일
 ├── html/
-│   └── index.html          # 커스텀 웹서버 메인페이지 소스 / 실제 화면 파일
+│   └── index.html          # 커스텀 웹서버 메인페이지 소스 / 실제 웹 화면 파일
 └── sample.txt              # CLI 파일 권한 및 기초 실습 파일
 ```
+  * dockerfile, README.md, index.html, 테스트한 로그 파일들을 역할별로 한눈에 보기 쉽게 정리 및 관리
 
 ---
 

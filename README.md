@@ -44,12 +44,12 @@ Server:
 
 ```text
 codyssey-mission/
-├── Dockerfile              # Nginx 기반 커스텀 웹서버 빌드 정의 파일
+├── Dockerfile              # Nginx 기반 커스텀 웹서버 빌드 정의 파일 / 웹서버 설계도
 ├── README.md               # 최종 기술 문서 (본 파일)
 ├── bind_test.txt           # Bind Mount 실시간 양방향 연동 검증 파일
 ├── container_access.log    # Nginx 컨테이너 내부 접근 로그 추출 파일
 ├── html/
-│   └── index.html          # 커스텀 웹서버 메인페이지 소스
+│   └── index.html          # 커스텀 웹서버 메인페이지 소스 / 실제 화면 파일
 └── sample.txt              # CLI 파일 권한 및 기초 실습 파일
 ```
 

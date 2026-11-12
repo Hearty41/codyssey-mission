@@ -157,7 +157,7 @@ e43341d49c71   ubuntu              "bash"                   2 hours ago     Exit
 ### 4.3 Custom Dockerfile 빌드 및 서비스 접속 검증
 * **Dockerfile 빌드 로그**:
   * 기본 Nginx 화면 대신 만든 index.html이 바로 뜨게 하려고 dockerfile 작성하여 my-custom-web:1.0 이라는 이미지 빌드
-  * 8081번 포트로 실행 curl -i 명령어로 HTTP 200 OK 정상 응답이랑 HTML 코드 나오는 것 확인
+  * 8081번 포트로 실행 curl -i 명령어로 HTTP 200 OK 정상 응답이랑 HTML 코드 나오는 거 확인
 ```bash
 sudo docker build -t my-custom-web:1.0 .
 ```
@@ -196,7 +196,7 @@ Connection: keep-alive
 ### 4.4 Docker Volume 영구 보존 입증
   * 컨테이너는 일회용이라 삭제하면 안의 데이터 같이 사라진다
   * 도커가 별도로 관리하는 my-vol 이라는 볼륨(안전 창고)을 만들어
-  * 컨테이너가 삭제된 뒤에도, 새로 띄운 컨테이너에 똑같은 볼륨을 연결하면 그대로 살아있는 거 확인
+  * 컨테이너가 삭제된 뒤에도, 새로 띄운 컨테이너에 똑같은 볼륨을 연결하면 글자 그대로 살아있는 거 확인
 ```bash
 # 1. 볼륨 생성 및 데이터 작성
 sudo docker volume create my-vol
@@ -210,6 +210,8 @@ hello docker volume
 ```
 
 ### 4.5 Docker Bind Mount 연동 재현 절차
+  * 내 컴퓨터 현재 폴더 ($(pwd))와 컨테이너 안의 /app 폴더를 직접 연결하는 바인드 마운트 테스트
+  * 컨테이너 안에서 bind_test.txt 파일을 만들고 나왔을 때 내 컴퓨터 폴더에도 즉시 파일이 생기는 실시간 동기화 확인
 ```bash
 # 1. 호스트 경로와 컨테이너 /app 마운트 실행
 sudo docker run -it -v $(pwd):/app ubuntu bash

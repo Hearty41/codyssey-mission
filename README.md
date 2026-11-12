@@ -194,7 +194,7 @@ Connection: keep-alive
 ```
 
 ### 4.4 Docker Volume 영구 보존 입증
-   * 컨테이너는 일회용이라 삭제하면 안의 데이터 같이 사라진다
+  * 컨테이너는 일회용이라 삭제하면 안의 데이터 같이 사라진다
   * 도커가 별도로 관리하는 my-vol 이라는 볼륨(안전 창고)을 만들어
   * 컨테이너가 삭제된 뒤에도, 새로 띄운 컨테이너에 똑같은 볼륨을 연결하면 글자 그대로 살아있는 거 확인
 ```bash
@@ -242,6 +242,8 @@ sudo lsof -i :8081
 sudo docker ps --filter "publish=8081"
 sudo docker stop my_custom_app && sudo docker rm my_custom_app
 ```
+  * 같은 8081번 포트로 컨테이너를 실행하려다 충돌 에러가 났을 때,
+  * lsof 명령어로 어떤 프로세스가 포트를 잡고 있는지 선 확인, 기존 컨테이너를 중지(stop)하고 삭제(rm)해서 해결
 
 ### 사례 2: Nginx 403/404 접속 오류 가설 검증 및 로그 확인
 * **가설**: 브라우저 접속 시 403 Forbidden 발생 원인은 메인 페이지 파일의 권한 부족 또는 마운트 경로 오류임.
@@ -253,6 +255,7 @@ sudo docker logs my_custom_app
 ```text
 2026/11/10 16:40:12 [error] 7#7: *1 directory index of "/usr/share/nginx/html/" is forbidden
 ```
+*
 * **결과**: `html/index.html` 파일 존재 확인 및 권한 `644` 변경 후 정적 파일 전달상태 복구 완료.
 
 ---

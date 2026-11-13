@@ -1,6 +1,6 @@
 # 🚀 Codyssey Developer Workstation Mission
 
-코디세이 개발 워크스테이션 구축 미션 수행 결과 종합 기술 문서입니다.  
+코디세이 나만의 개발자용 '작업실' 꾸미 미션 수행 결과 종합 기술 문서입니다.  
 리눅스 CLI 기초부터 Docker 컨테이너화, 데이터 영구 보존(Volume & Bind Mount), Git 버전 관리, 네트워크/권한 개념 및 보안 지침을 모두 준수하여 작성되었습니다.
 
 ---

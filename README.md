@@ -13,6 +13,7 @@
 | **Container Engine** | Docker Desktop (WSL Integration enabled) |
 | **VCS / Repository** | Git / GitHub (`Hearty41/codyssey-mission`) |
 | **Web Server** | Nginx (Custom Image: `my-custom-web:1.0`) |
+  
   * 미션 시작 전 윈도우에서 리눅스(WSL2)랑 도커가 정상적으로 연결되어 있는지 먼저 확인
   * docker --version, docker info를 입력하여 도커 엔진이 백그라운드에서 잘 돌아가고 있는지 확인하고 시작
 
@@ -86,7 +87,7 @@ codyssey-mission/
 
 ### 3.3 Docker 이미지 vs 컨테이너
 * **Docker 이미지 (Image)**: 애플리케이션 실행에 필요한 코드, 라이브러리, 설정이 포함된 **읽기 전용(Read-Only) 템플릿** (클래스/설계도 개념).
-  * 웹 서버 (Nginx), 작성한 웹페이지(index.html), 실행에 필요한 라이브러리와 환경 설정을 한데 압축해 놓은.
+  * 웹 서버 (Nginx), 작성한 웹페이지(index.html), 실행에 필요한 라이브러리와 환경 설정을 한데 압축해 놓은 설계도.
 * **Docker 컨테이너 (Container)**: 이미지 위에 읽기-쓰기 레이어(Read-Write Layer)를 추가하여 **격리된 프로세스로 실행되는 인스턴스** (객체/실체 개념).
   * 도커 이미지를 컴퓨터 메모리에 올려 실제로 작동하게 만든 독립적인 미니 컴퓨터.
 * **생명주기 흐름**: `Dockerfile 작성` ➔ `docker build (이미지 생성)` ➔ `docker run (컨테이너 실행 및 프로세스 격리)`

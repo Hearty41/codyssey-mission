@@ -211,8 +211,8 @@ Connection: keep-alive
 
 <!DOCTYPE html>
 <html>
-<head><title>Codyssey Custom Web Server</title></head>
-<body><h1>Hello Codyssey Docker Web Server!</h1></body>
+<head><title>Hello My Custom Work Station Web Server</title></head>
+<body><h1>Hello My Custom Work Station Web Server</h1></body>
 </html>
 ```
 

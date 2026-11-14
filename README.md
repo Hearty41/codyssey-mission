@@ -109,21 +109,36 @@ codyssey-mission/
 ## 🎯 4. 미션 요구사항별 수행 내역 & 실행 증거 (Execution Logs)
 
 ### 4.1 CLI 기초 및 파일 권한 실습
-  * 마우스 없이 터미널에서 명령어만으로 내 위치 확인과 파일을 만들어서 권한을 바꿀 수 있는지 테스트.
+  * 마우스 없이 터미널에서 명령어만으로 디렉토리 이동(`cd`), 숨김 파일 포함 전체 조회(`ls -la`), 파일 생성(`touch`), 복사(`cp`), 이동/이름변경(`mv`), 삭제(`rm`), 권한 변경(`chmod`) 테스트
   * pwd로 현재 폴더 위치 확인
   * touch로 sample.txt 파일을 만들고
   * chmod 755로 권한이 제대로 바뀌었는지 ls -l로 확인
 ```bash
+# 1. 현재 위치 확인 및 숨김 파일 포함 전체 목록 조회
 pwd
+cd ~/codyssey-mission
+ls -la
+
+# 2. 파일 생성 및 권한 변경(755)
 touch sample.txt
-ls -l sample.txt
 chmod 755 sample.txt
 ls -l sample.txt
+
+# 3. 파일 복사(cp), 이름 변경/이동(mv), 삭제(rm) 검증
+cp sample.txt sample_copy.txt
+mv sample_copy.txt moved_sample.txt
+ls -l moved_sample.txt
+rm moved_sample.txt
 ```
 ```text
 /home/gnlwls04011917/codyssey-mission
--rw-r--r-- 1 gnlwls04011917 gnlwls04011917 0 Nov 10 16:00 sample.txt
+drwxr-xr-x 4 gnlwls04011917 gnlwls04011917 4096 Nov 11 16:01 .
+drwxr-xr-x 7 gnlwls04011917 gnlwls04011917 4096 Nov 11 16:01 .git
+-rw-r--r-- 1 gnlwls04011917 gnlwls04011917   82 Nov 11 16:01 Dockerfile
+-rw-r--r-- 1 gnlwls04011917 gnlwls04011917 4696 Nov 11 16:01 README.md
+
 -rwxr-xr-x 1 gnlwls04011917 gnlwls04011917 0 Nov 10 16:01 sample.txt
+-rwxr-xr-x 1 gnlwls04011917 gnlwls04011917 0 Nov 10 16:02 moved_sample.txt
 ```
 
 ### 4.2 Docker 기본 작동 및 모니터링

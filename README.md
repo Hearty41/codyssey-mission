@@ -250,6 +250,24 @@ ls -l bind_test.txt
 -rw-r--r-- 1 root root 0 Nov 10 16:45 bind_test.txt
 ```
 
+### 4.6 VS Code 및 Git/GitHub 원격 저장소 연동 증거
+  * VS Code 환경에서 프로젝트 폴더를 열고(`code .`), Git 사용자 계정 설정 및 GitHub 원격 저장소(`origin`) 연결 상태 확인
+```bash
+git config --list | grep user
+git remote -v
+git status
+```
+```text
+user.name=Hearty41
+user.email=gnlwls0401@naver.com
+origin  [https://github.com/Hearty41/codyssey-mission.git](https://github.com/Hearty41/codyssey-mission.git) (fetch)
+origin  [https://github.com/Hearty41/codyssey-mission.git](https://github.com/Hearty41/codyssey-mission.git) (push)
+On branch main
+Your branch is up to date with 'origin/main'.
+nothing to commit, working tree clean
+```
+*(여기에 커서를 두고 `Win + Shift + S`로 캡처한 VS Code + 터미널 연동 화면을 `Ctrl + V`로 붙여넣으세요)*
+
 ---
 
 ## 🛠️ 5. 트러블슈팅 및 장애 조치 사례 (Troubleshooting)

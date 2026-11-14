@@ -41,6 +41,13 @@ Server:
  Images: 4
 ```
 
+```bash
+git --version
+```
+```text
+git version 2.34.1
+```
+
 ---
 
 ## 📁 2. 프로젝트 디렉토리 구조 (Directory Structure)
@@ -103,6 +110,10 @@ codyssey-mission/
 * **포트 포워딩 (Port Forwarding)**: 외부/호스트 PC에서 컨테이너 내부 서비스에 접근하기 위해 호스트 포트와 컨테이너 포트를 매핑하는 기능입니다.
   * 예: `-p 8081:80` (호스트의 `8081` 포트로 들어온 요청을 컨테이너 내부 Nginx의 `80` 포트로 전달)
   * 내 컴퓨터의 8081번 포트로 접속하면 컨테이너 안의 웹서버 80번 포트로 연결해 주도록 문을 열어주는 포트 포워딩.
+
+### 3.5 Git vs GitHub 역할 차이
+- **Git (로컬 버전 관리 도구)**: 내 컴퓨터(로컬)에서 파일의 변경 이력(Commit)을 시간순으로 기록하고, 필요 시 이전 시점으로 되돌리는 **분산 버전 관리 시스템**입니다.
+- **GitHub (원격 협업 플랫폼)**: 로컬 Git으로 기록한 코드 저장소를 클라우드 서버(원격)에 백업·공유하고, 다른 개발자와 코드를 합치거나(Pull Request) 리뷰하는 **온라인 협업 플랫폼**입니다.
 
 ---
 
@@ -176,6 +187,27 @@ CONTAINER ID   IMAGE               COMMAND                  CREATED         STAT
 116f01e851a4   ubuntu              "bash"                   1 hour ago      Exited (0) 1 hour ago                             competent_tu
 e43341d49c71   ubuntu              "bash"                   2 hours ago     Exited (0) 2 hours ago                            nervous_hawking
 ```
+
+- **Ubuntu 컨테이너 실행, 내부 명령(`ls`, `echo`) 및 리소스(`docker stats`) 확인**:
+```bash
+# 1. ubuntu 컨테이너 백그라운드 실행 및 exec로 내부 진입하여 명령 수행
+sudo docker run -d --name my_ubuntu ubuntu sleep 3600
+sudo docker exec my_ubuntu bash -c "echo 'Hello Ubuntu Container' && ls /"
+
+# 2. 실행 중인 컨테이너 실시간 리소스(CPU/메모리) 사용량 점검
+sudo docker stats --no-stream
+sudo docker stop my_ubuntu && sudo docker rm my_ubuntu
+```
+```text
+Hello Ubuntu Container
+bin  boot  dev  etc  home  lib  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+
+CONTAINER ID   NAME            CPU %     MEM USAGE / LIMIT   MEM %     NET I/O       BLOCK I/O
+05d591821115   my_custom_app   0.00%     4.12MiB / 7.65GiB   0.05%     1.2kB / 0B    0B / 0B
+```
+- **컨테이너 종료 vs 유지(`attach` vs `exec`) 차이 정리**:
+  * **`docker attach`로 진입 후 `exit`**: 컨테이너의 메인 프로세스(PID 1)에 직접 연결되므로, 내부에서 `exit`를 입력하면 메인 프로세스가 종료되면서 **컨테이너 자체가 함께 중지(`Exited`)**됩니다. (유지하려면 `Ctrl + P` 후 `Ctrl + Q`로 빠져나와야 함)
+  * **`docker exec`로 진입 후 `exit`**: 실행 중인 컨테이너 안에 **별도의 보조 쉘 프로세스**를 추가로 띄워 들어가는 방식이므로, 작업을 마치고 `exit`로 나와도 원래 컨테이너는 **백그라운드에서 계속 실행(`Up`) 상태로 유지**됩니다.
 
 ### 4.3 Custom Dockerfile 빌드 및 서비스 접속 검증
 * **Dockerfile 빌드 로그**:
@@ -256,13 +288,14 @@ ls -l bind_test.txt
 ### 4.6 VS Code 및 Git/GitHub 원격 저장소 연동 증거
   * VS Code 환경에서 프로젝트 폴더를 열고(`code .`), Git 사용자 계정 설정 및 GitHub 원격 저장소(`origin`) 연결 상태 확인
 ```bash
-git config --list | grep user
+git config --list 
 git remote -v
 git status
 ```
 ```text
 user.name=Hearty41
 user.email=**********@naver.com
+init.defaultBranch=main
 origin  [https://github.com/Hearty41/codyssey-mission.git](https://github.com/Hearty41/codyssey-mission.git) (fetch)
 origin  [https://github.com/Hearty41/codyssey-mission.git](https://github.com/Hearty41/codyssey-mission.git) (push)
 On branch main

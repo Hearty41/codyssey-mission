@@ -269,7 +269,7 @@ On branch main
 Your branch is up to date with 'origin/main'.
 nothing to commit, working tree clean
 ```
-*(여기에 커서를 두고 `Win + Shift + S`로 캡처한 VS Code + 터미널 연동 화면을 `Ctrl + V`로 붙여넣으세요)*
+<img width="1918" height="2084" alt="image" src="https://github.com/user-attachments/assets/184d5c8a-834c-455b-8d2e-92b3dda16f80" />
 
 ---
 

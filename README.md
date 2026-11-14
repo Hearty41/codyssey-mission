@@ -215,7 +215,8 @@ Connection: keep-alive
 <body><h1>Hello Codyssey Docker Web Server!</h1></body>
 </html>
 ```
-<img width="1915" height="2087" alt="image" src="https://github.com/user-attachments/assets/3c022f39-71d2-43d9-a9e3-1956c3db942a" />
+
+<img width="1249" height="599" alt="image" src="https://github.com/user-attachments/assets/e72739ce-f84b-4ce3-b94c-0555f09950d1" />
 
 
 ### 4.4 Docker Volume 영구 보존 입증

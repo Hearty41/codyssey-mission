@@ -152,6 +152,23 @@ drwxr-xr-x 7 gnlwls04011917 gnlwls04011917 4096 Nov 11 16:01 .git
 -rwxr-xr-x 1 gnlwls04011917 gnlwls04011917 0 Nov 10 16:02 moved_sample.txt
 ```
 
+```bash
+# 4. 파일 내용 작성/확인(cat) 및 디렉토리(폴더) 권한 변경(755 -> 700) 전/후 비교
+echo "Hello Linux CLI" > sample.txt
+cat sample.txt
+
+mkdir test_dir
+ls -ld test_dir
+chmod 700 test_dir
+ls -ld test_dir
+rmdir test_dir
+```
+```text
+Hello Linux CLI
+drwxr-xr-x 2 gnlwls04011917 gnlwls04011917 4096 Nov 11 16:03 test_dir
+drwx------ 2 gnlwls04011917 gnlwls04011917 4096 Nov 11 16:03 test_dir
+```
+
 ### 4.2 Docker 기본 작동 및 모니터링
 * **hello-world 컨테이너 실행 로그**:
   * hello-world를 실행, 도커 설치랑 작동이 정상인지 확인
@@ -210,6 +227,8 @@ CONTAINER ID   NAME            CPU %     MEM USAGE / LIMIT   MEM %     NET I/O  
   * **`docker exec`로 진입 후 `exit`**: 실행 중인 컨테이너 안에 **별도의 보조 쉘 프로세스**를 추가로 띄워 들어가는 방식이므로, 작업을 마치고 `exit`로 나와도 원래 컨테이너는 **백그라운드에서 계속 실행(`Up`) 상태로 유지**됩니다.
 
 ### 4.3 Custom Dockerfile 빌드 및 서비스 접속 검증
+- **선택한 베이스 이미지**: 용량이 작고 보안성이 뛰어난 공식 경량 웹서버 이미지 **`nginx:alpine`** 선택
+- **커스텀 포인트 및 목적**: `COPY html/index.html /usr/share/nginx/html/index.html` 명령을 추가하여 기본 Nginx 안내 페이지 대신 직접 작성한 커스텀 메인 웹페이지가 서비스되도록 정적 콘텐츠 교체
 * **Dockerfile 빌드 로그**:
   * 기본 Nginx 화면 대신 만든 index.html이 바로 뜨게 하려고 dockerfile 작성하여 my-custom-web:1.0 이라는 이미지 빌드
   * 8081번 포트로 실행 curl -i 명령어로 HTTP 200 OK 정상 응답이랑 HTML 코드 나오는 거 확인

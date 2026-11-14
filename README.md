@@ -257,15 +257,25 @@ sudo docker stop my_custom_app && sudo docker rm my_custom_app
 * **가설**: 브라우저 접속 시 403 Forbidden 발생 원인은 메인 페이지 파일의 권한 부족 또는 마운트 경로 오류임.
 * **검증 및 조치**:
 ```bash
-# 컨테이너 내부 접근 로그 확인
+# 1. 컨테이너 내부 접근 로그 확인
 sudo docker logs my_custom_app
 ```
 ```text
 2026/11/10 16:40:12 [error] 7#7: *1 directory index of "/usr/share/nginx/html/" is forbidden
 ```
+```bash
+# 2. index.html 읽기 권한(644) 부여 및 정상 접속 재검증
+chmod 644 html/index.html
+curl -i http://localhost:8081
+```
+```text
+HTTP/1.1 200 OK
+Server: nginx/1.25.3
+Content-Type: text/html
+```
 * 웹 접속 시 403/404 Forbidden 오류가 났을 때
-* docker logs로 컨테이너 내부 에러 로그를 먼저 확인해서 파일 접근 권한 문제인 거 찾아냄
-* index.html에 읽기 권한(644)을 부여해서 정상 접속되게 복구
+* `docker logs`로 컨테이너 내부 에러 로그를 먼저 확인해서 파일 접근 권한 문제인 거 찾아냄
+* `chmod 644`로 `index.html`에 읽기 권한을 부여하고, `curl -i`로 `200 OK` 정상 접속 복구 확인
 
 * **결과**: `html/index.html` 파일 존재 확인 및 권한 `644` 변경 후 정적 파일 전달상태 복구 완료.
 

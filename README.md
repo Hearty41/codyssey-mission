@@ -262,7 +262,7 @@ git status
 ```
 ```text
 user.name=Hearty41
-user.email=gnlwls0401@naver.com
+user.email=**********@naver.com
 origin  [https://github.com/Hearty41/codyssey-mission.git](https://github.com/Hearty41/codyssey-mission.git) (fetch)
 origin  [https://github.com/Hearty41/codyssey-mission.git](https://github.com/Hearty41/codyssey-mission.git) (push)
 On branch main

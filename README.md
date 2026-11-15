@@ -96,17 +96,19 @@ codyssey-mission/
   * *선택 기준*: 프로젝트 내부 파일 간 참조 또는 CLI에서 빠른 디렉토리 이동 시 사용.
   * 프로젝트 폴더 통째로 다른 컴퓨터로 옮겨도 내부 파일 연결이 안 끊기게 하려고 사용.
 
+- **실습 명령어 예시 (절대경로와 상대경로로 폴더 이동 비교)**:
 ```bash
-# 1. 절대경로로 조회 (어디에 있든 항상 동일한 전체 경로 사용)
-ls -l /home/gnlwls04011917/codyssey-mission/html/index.html
+# 1. 절대경로로 이동 (루트 '/'부터 전체 주소를 적어 한 번에 이동)
+cd /home/gnlwls04011917/codyssey-mission/html
+pwd
 
-# 2. 상대경로로 조회 (현재 작업 디렉토리 '.' 기준)
-ls -l ./html/index.html
+# 2. 상대경로로 이동 (현재 위치 기준으로 상위 폴더 '..'로 한 칸 이동)
+cd ..
+pwd
 ```
 ```text
+/home/gnlwls04011917/codyssey-mission/html
 /home/gnlwls04011917/codyssey-mission
--rw-r--r-- 1 gnlwls04011917 gnlwls04011917 124 Nov 10 16:25 /home/gnlwls04011917/codyssey-mission/html/index.html
--rw-r--r-- 1 gnlwls04011917 gnlwls04011917 124 Nov 10 16:25 ./html/index.html
 ```
 
 ### 3.3 Docker 이미지 vs 컨테이너

@@ -105,8 +105,6 @@ pwd
 # 2. 상대경로로 이동 (현재 위치 기준으로 상위 폴더 '..'로 한 칸 이동)
 cd ..
 pwd
-```
-```text
 /home/gnlwls04011917/codyssey-mission/html
 /home/gnlwls04011917/codyssey-mission
 ```

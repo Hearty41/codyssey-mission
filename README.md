@@ -79,9 +79,9 @@ codyssey-mission/
 | `x` (Execute) | 실행 권한 | `001` | **1** |
 
 * **권한 계산 예시**:
-  * `7` (`rwx`) = 4(r) + 2(w) + 1(x)
-  * `5` (`r-x`) = 4(r) + 0 + 1(x)
-  * `4` (`r--`) = 4(r) + 0 + 0
+  * `7` (`rwx`) = 4(r) + 2(w) + 1(x) ➔ 읽기·쓰기·실행 모두 허용 (소유자)
+  * `5` (`r-x`) = 4(r) + 0 + 1(x) ➔ 읽기와 실행만 허용, 수정 불가 (그룹·기타)
+  * `4` (`r--`) = 4(r) + 0 + 0 ➔ 읽기만 허용
   * `chmod 755 sample.txt`: 소유자 `rwx`(7), 그룹 `r-x`(5), 기타 `r-x`(5) 권한 부여
   * 소유자는 4+2+1을 다 가져서 수정, 실행 다 가능
   * 그룹, 기타는 파일을 함부로 수정하지 못하게 막으려고 4+0+1, 755 권한 부여
@@ -95,6 +95,19 @@ codyssey-mission/
 * **상대경로 (Relative Path)**: 현재 위치(`.`) 기준 경로 (예: `./html/index.html`, `../`).
   * *선택 기준*: 프로젝트 내부 파일 간 참조 또는 CLI에서 빠른 디렉토리 이동 시 사용.
   * 프로젝트 폴더 통째로 다른 컴퓨터로 옮겨도 내부 파일 연결이 안 끊기게 하려고 사용.
+
+```bash
+# 1. 절대경로로 조회 (어디에 있든 항상 동일한 전체 경로 사용)
+ls -l /home/gnlwls04011917/codyssey-mission/html/index.html
+
+# 2. 상대경로로 조회 (현재 작업 디렉토리 '.' 기준)
+ls -l ./html/index.html
+```
+```text
+/home/gnlwls04011917/codyssey-mission
+-rw-r--r-- 1 gnlwls04011917 gnlwls04011917 124 Nov 10 16:25 /home/gnlwls04011917/codyssey-mission/html/index.html
+-rw-r--r-- 1 gnlwls04011917 gnlwls04011917 124 Nov 10 16:25 ./html/index.html
+```
 
 ### 3.3 Docker 이미지 vs 컨테이너
 * **Docker 이미지 (Image)**: 애플리케이션 실행에 필요한 코드, 라이브러리, 설정이 포함된 **읽기 전용(Read-Only) 템플릿** (클래스/설계도 개념).
